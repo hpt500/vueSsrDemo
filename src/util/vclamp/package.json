@@ -1,0 +1,20 @@
+{
+  "name": "vclamp",
+  "version": "1.0.0",
+  "description": "a package for an HTML element's content by adding ellipsis to it if the content inside is too long",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "vclamp",
+    "clamp",
+    "ellipsis",
+    "vue-filter"
+  ],
+  "author": "okbexx",
+  "license": "ISC"
+}

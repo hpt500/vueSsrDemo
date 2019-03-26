@@ -1,0 +1,7 @@
+apps:
+  - script: ./server.js
+    name: leitai-todo
+    env_production:
+      NODE_ENV: production
+      HOST: localhost
+      PORT: 20004

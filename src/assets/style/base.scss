@@ -1,0 +1,24 @@
+@charset "UTF-8";
+// 引入混合文件
+@import "./mixins";
+// 引入元素限制文件(行数)
+@import "./ellipsis";
+// 引入xyx文件 hpt500 <565420423@qq.com>
+@import "./xyx";
+
+// 主要颜色 应用于标题 用户名等
+$mainCol: #333;
+// 内容颜色
+$conCol: #999;
+// 按钮级别
+$btnCol: #148bc8;
+// 按钮级别 -hover及明亮
+$btnColHover: #3bb5fc;
+
+$boderColor: #252525;
+
+html {
+  height: 100%;
+  font-family: Tahoma, "Hiragino Sans GB", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif !important;
+}
+

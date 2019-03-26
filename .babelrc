@@ -1,0 +1,16 @@
+{
+  "presets": [
+    [
+      "env",
+      {
+        "modules": false
+      }
+    ],
+    "stage-2"
+  ],
+  "plugins": [
+    "syntax-dynamic-import",
+    "transform-runtime"
+  ],
+  "comments": false
+}

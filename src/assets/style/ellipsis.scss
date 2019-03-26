@@ -1,0 +1,54 @@
+// 文本省略组件
+.elli{
+    overflow:hidden;
+    white-space:nowrap;
+    text-overflow:ellipsis;
+}
+.melli{
+    overflow : hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+}
+.melli-2{
+    -webkit-line-clamp: 2;
+}
+.melli-3{
+    -webkit-line-clamp: 3;
+}
+.melli-4{
+    -webkit-line-clamp: 4;
+}
+.melli-5{
+    -webkit-line-clamp: 5;
+}
+.melli-6{
+    -webkit-line-clamp: 6;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

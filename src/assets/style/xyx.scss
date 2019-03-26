@@ -1,0 +1,301 @@
+/**
+*You can contact me by 565420423@qq.com --Mr.Xu
+**/
+@charset "utf-8";
+
+$baseColor: #148bc8;
+$baseHover: #3bb5fc;
+
+// xyx filter
+@mixin xyx_filter_one($val){
+    filter: $val;
+    -webkit-filter: $val;
+}
+
+// xyx  %filter->brightness
+@mixin xyx_filter_bright($num){
+    @include xyx_filter_one(brightness($num));
+}
+
+// xyx widht and height
+@mixin xyx_wh($w,$h){
+    width: $w;
+    height: $h;
+}
+
+// xyx @media
+@mixin xyx_media_width($t,$w){
+    @media screen and(#{$t}-width:$w){
+        // @content this is content
+        @content;
+    }
+}
+
+// xyx @media two
+@mixin xyx_media_and($w1,$w2){
+    @media screen and (max-width: $w1) and (min-width: $w2){
+        // @content this is content
+        @content;
+    }
+}
+
+//xyx absolute
+@mixin xyx_abs($t:auto,$r:auto,$b:auto,$l:auto){
+    position: absolute;
+    left: $l;right: $r;top: $t;bottom: $b;
+}
+
+//xyx relative
+@mixin xyx_rel($t:auto,$r:auto,$b:auto,$l:auto){
+    position: relative;
+    left: $l;right: $r;top: $t;bottom: $b;
+}
+
+//xyx cut of the inline-block
+@mixin xyx_cut_inb($num){
+    display: inline-block;
+    width: (100%/$num);
+}
+
+//xyx cut of the float
+@mixin xyx_cut_flo($num){
+    float: left;
+    width: (100%/$num);
+}
+
+//xyx border of the square
+@mixin xyx_border_square($w,$t,$c,$b){
+    border: $w $c $t;
+    border-radius: $b;
+}
+
+.clearFloat{
+    &::after{
+        content: "";
+        display: block;
+        width: 0;
+        height: 0;
+        clear: both;
+        visibility: hidden;
+    }
+}
+.jz{
+    &::after{
+        content: "";
+        display: inline-block;
+        width: 0;
+        height: 100%;
+        vertical-align: middle;
+    }
+}
+.left{
+    float: left;
+}
+.right{
+    float: right;
+}
+.texHover{
+    &:hover{
+        text-decoration: underline;
+    }
+}
+.alinCenter{
+    text-align: center;
+}
+
+
+
+//xyx about of flex
+.flex{
+    display: flex;
+}
+%flex{
+    display: flex;
+}
+.flex_one{
+    flex: 1;
+}
+.flex_row{
+    display: flex;
+    flex-direction: row;
+}
+.flex_column{
+    display: flex;
+    flex-direction: column;
+}
+.flex_align{
+    justify-content: center;
+    align-items: center;
+}
+.flex_row_center{
+    flex-direction: row;
+    justify-content: center;
+}
+.flex_row_between{
+    flex-direction: row;
+    justify-content: space-between;
+}
+.flex_column_center{
+    flex-direction: column;
+    align-items: center;
+}
+.flex_column_between{
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.fs12{
+    font-size: 12px;
+}
+.fs14{
+    font-size: 14px;
+}
+.fs16{
+    font-size: 16px;
+}
+.fs18{
+    font-size: 18px;
+}
+.fs20{
+    font-size: 20px;
+}
+.fs24{
+    font-size: 24px;
+}
+.fs28{
+    font-size: 28px;
+}
+.fs32{
+    font-size: 32px;
+}
+
+.ml5{
+    margin-left: 5px;
+}
+.ml10{
+    margin-left: 10px;
+}
+.ml15{
+    margin-left: 15px;
+}
+.ml20{
+    margin-left: 20px;
+}
+.mr5{
+    margin-right: 5px;
+}
+.mr10{
+    margin-right: 10px;
+}
+.mr15{
+    margin-right: 15px;
+}
+.mr20{
+    margin-right: 20px;
+}
+.mt5{
+    margin-top: 5px;
+}
+.mt10{
+    margin-top: 10px;
+}
+.mt15{
+    margin-top: 15px;
+}
+.mt20{
+    margin-top: 20px;
+}
+.mb5{
+    margin-bottom: 5px;
+}
+.mb10{
+    margin-bottom: 10px;
+}
+.mb15{
+    margin-bottom: 15px;
+}
+.mb20{
+    margin-bottom: 20px;
+}
+
+.lh20{
+    line-height: 20px;
+}
+.lh24{
+    line-height: 24px;
+}
+.lh28{
+    line-height: 28px;
+}
+.lh32{
+    line-height: 32px;
+}
+
+
+//xyx resolve the margin bug
+.clearHeight{
+    @include xyx_border_square(1px,solid,#ffffff,12px);
+}
+
+//xyx the dom center
+.domMiddle{
+    &::after{
+        content: "";
+        display: inline-block;
+        width: 0;height: 100%;
+        vertical-align: middle;
+    }
+}
+
+// xyx from ul to divide
+.twoQue{
+    font-size: 0;
+    li{
+        display: inline-block;
+        width: 50%;
+    }
+}
+
+//xyx phone flex =? rem 
+@function fr($num,$scale:64) { 
+    @if $num == 0{
+        @return 0;
+    }
+    @else {
+        @return #{($num/$scale)}rem;
+    }
+}
+// 类型:margin or padding  -->?  上右下左
+@mixin fr_mp($type:'margin',$num1:0,$num2:0,$num3:0,$num4:0){
+    @if $num1 == $num2 and $num1 == $num3 and $num1 == $num4{
+        #{$type}: fr($num1);
+    }
+    @else if $num1 == $num3 and $num2 == $num4 {
+        #{$type}: fr($num1) fr($num4);
+    }
+    @else if $num1 != $num3 and $num2 == $num4 {
+        #{$type}: fr($num1) fr($num2) fr($num3);
+    }
+    @else {
+        #{$type}: fr($num1) fr($num2) fr($num3) fr($num4);
+    }
+}
+
+// xyx var the fontfamily
+.blackFam{
+    font-family: "黑体"
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
